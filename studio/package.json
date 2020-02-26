@@ -1,9 +1,9 @@
 {
   "private": true,
-  "name": "sanity-gatsby-blog-studio",
+  "name": "selbekk-io-studio",
   "version": "1.0.6",
   "main": "package.json",
-  "author": "Sanity <hello@sanity.io>",
+  "author": "Kristofer Giltvedt Selbekk <kristofer@selbekk.io>",
   "scripts": {
     "dev": "sanity start",
     "format": "prettier-eslint --write \"**/*.js\" \"!node_modules/**\"",
