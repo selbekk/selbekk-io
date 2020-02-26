@@ -15,14 +15,21 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
-  background: var(--color-white);
-  color: var(--color-black);
+  background: var(--color-background-body);
+  color: var(--color-text-body);
   margin: 0;
+}
+
+/* Invert images when the colors are inverted so that they look like they should */
+@media (inverted-colors) {
+  img {
+    filter: invert(1) !important;
+  }
 }
 
 html,
 body,
 body > div,
 body > div > div {
-  height: 100%;
+  min-height: 100%;
 }

@@ -2,7 +2,7 @@
 
 .root {
   margin: 2rem 0 3rem;
-  border-top: 1px solid var(--color-very-light-gray);
+  border-top: 1px solid var(--color-background-body-variant);
 }
 
 .headline {
@@ -34,7 +34,7 @@
   position: relative;
   width: 3em;
   height: 3em;
-  background: var(--color-very-light-gray);
+  background: var(--color-background-body-variant);
   border-radius: 50%;
   overflow: hidden;
 

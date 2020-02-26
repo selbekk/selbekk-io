@@ -66,7 +66,7 @@
 }
 
 .blockQuote {
-  background: var(--color-very-light-gray);
+  background: var(--color-background-body-variant);
 }
 
 .responsiveTitle1 {

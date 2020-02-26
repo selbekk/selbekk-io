@@ -8,7 +8,11 @@
   --color-light-gray: #b4bcc7;
   --color-very-light-gray: #e7ebed;
   --color-white: #fff;
-  --color-accent: #156dff;
+  --color-accent: #306bac;
+
+  --color-text-body: var(--color-black);
+  --color-background-body: var(--color-white);
+  --color-background-body-variant: var(--color-very-light-gray);
 
   /* Typography */
   --unit: 16;
@@ -27,4 +31,14 @@
   --font-title2-line-height: calc(33 / 24); /* 33px */
   --font-title1-size: calc(49 / var(--unit) * 1rem); /* 49px */
   --font-title1-line-height: calc(57 / 49); /* 57px */
+}
+
+/* Support dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-body: var(--color-white);
+    --color-background-body: var(--color-black);
+    --color-background-body-variant: var(--color-dark-gray);
+    --color-accent: #306bac;
+  }
 }
