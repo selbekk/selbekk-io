@@ -1,15 +1,22 @@
-import {format, distanceInWords, differenceInDays} from 'date-fns'
-import React from 'react'
-import {buildImageObj} from '../lib/helpers'
-import {imageUrlFor} from '../lib/image-url'
-import PortableText from './portableText'
-import Container from './container'
-import AuthorList from './author-list'
+import { format, distanceInWords, differenceInDays } from 'date-fns';
+import React from 'react';
+import { buildImageObj } from '../lib/helpers';
+import { imageUrlFor } from '../lib/image-url';
+import PortableText from './portableText';
+import Container from './container';
+import AuthorList from './author-list';
 
-import styles from './blog-post.module.css'
+import styles from './blog-post.module.css';
 
-function BlogPost (props) {
-  const {_rawBody, authors, categories, title, mainImage, publishedAt} = props
+function BlogPost(props) {
+  const {
+    _rawBody,
+    authors,
+    categories,
+    title,
+    mainImage,
+    publishedAt,
+  } = props;
   return (
     <article className={styles.root}>
       {mainImage && mainImage.asset && (
@@ -39,12 +46,12 @@ function BlogPost (props) {
                   : format(new Date(publishedAt), 'MMMM Do, YYYY')}
               </div>
             )}
-            {authors && <AuthorList items={authors} title='Authors' />}
+            {authors && <AuthorList items={authors} title="Authors" />}
             {categories && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
                 <ul>
-                  {categories.map(category => (
+                  {categories.map((category) => (
                     <li key={category._id}>{category.title}</li>
                   ))}
                 </ul>
@@ -54,7 +61,7 @@ function BlogPost (props) {
         </div>
       </Container>
     </article>
-  )
+  );
 }
 
-export default BlogPost
+export default BlogPost;
