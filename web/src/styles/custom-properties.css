@@ -1,5 +1,6 @@
 :root {
-  --font-family-sans: -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-sans: 'Open Sans', sans-serif;
+  --font-family-serif: 'Abril Fatface', serif;
 
   --color-black: #202123;
   --color-dark-gray: #32373e;

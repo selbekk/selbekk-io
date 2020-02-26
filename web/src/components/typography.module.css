@@ -1,19 +1,21 @@
 @import '../styles/custom-media.css';
 @import '../styles/custom-properties.css';
 
-
-
 /*
  * Statically sized elements
  */
 
 .title1 {
+  font-family: var(--font-family-serif);
   font-size: var(--font-title1-size);
+  font-weight: normal;
   line-height: var(--font-title1-line-height);
 }
 
 .title2 {
+  font-family: var(--font-family-serif);
   font-size: var(--font-title2-size);
+  font-weight: normal;
   line-height: var(--font-title2-line-height);
 }
 
@@ -43,8 +45,6 @@
   text-transform: uppercase;
 }
 
-
-
 /*
  * Responsively sized elements
  */
@@ -70,8 +70,9 @@
 }
 
 .responsiveTitle1 {
-  font-weight: 600;
+  font-family: var(--font-family-serif);
   font-size: var(--font-title2-size);
+  font-weight: normal;
   line-height: var(--font-title2-line-height);
   margin: 1rem 0 2rem;
 
@@ -87,8 +88,9 @@
 }
 
 .responsiveTitle2 {
-  font-weight: 600;
+  font-family: var(--font-family-serif);
   font-size: var(--font-large-size);
+  font-weight: normal;
   line-height: var(--font-large-line-height);
   margin: 1.5rem 0 0.5rem;
 
@@ -104,7 +106,6 @@
 }
 
 .responsiveTitle3 {
-  font-weight: 600;
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);
   margin: 1rem 0 0.5rem;
@@ -121,8 +122,9 @@
 }
 
 .responsiveTitle4 {
-  font-weight: 600;
+  font-family: var(--font-family-serif);
   font-size: var(--font-base-size);
+  font-weight: normal;
   line-height: var(--font-base-line-height);
   margin: 1rem 0 0.5rem;
 

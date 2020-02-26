@@ -12,6 +12,13 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet-async',
     {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [`abril fatface`, `open sans`],
+        display: 'swap',
+      },
+    },
+    {
       resolve: 'gatsby-source-sanity',
       options: {
         ...clientConfig.sanity,
