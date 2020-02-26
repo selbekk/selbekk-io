@@ -4,6 +4,13 @@ html {
   font-family: var(--font-family-sans);
   font-size: var(--font-base-size);
   line-height: var(--font-base-line-height);
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
