@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "selbekk-io-studio",
+  "name": "studio",
   "version": "1.0.6",
   "main": "package.json",
   "author": "Kristofer Giltvedt Selbekk <kristofer@selbekk.io>",

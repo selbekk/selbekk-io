@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "selbekk-io-web",
+  "name": "site",
   "version": "1.0.1",
   "author": "Kristofer Giltvedt Selbekk <kristofer@selbekk.io>",
   "scripts": {
