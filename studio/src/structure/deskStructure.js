@@ -1,19 +1,15 @@
-import S from '@sanity/desk-tool/structure-builder'
-import MdSettings from 'react-icons/lib/md/settings'
-import {
-  MdPerson,
-  MdDescription,
-  MdLocalOffer
-} from 'react-icons/lib/md'
-import IframePreview from '../previews/IframePreview'
+import S from '@sanity/desk-tool/structure-builder';
+import MdSettings from 'react-icons/lib/md/settings';
+import { MdPerson, MdDescription, MdLocalOffer } from 'react-icons/lib/md';
+import IframePreview from '../previews/IframePreview';
 
 // Web preview configuration
-const remoteURL = 'https://selbekk-io.netlify.com'
-const localURL = 'http://localhost:8000'
+const remoteURL = 'https://selbekk-io.netlify.com';
+const localURL = 'http://localhost:8000';
 const previewURL =
-  window.location.hostname === 'localhost' ? localURL : remoteURL
+  window.location.hostname === 'localhost' ? localURL : remoteURL;
 
-export const getDefaultDocumentNode = props => {
+export const getDefaultDocumentNode = (props) => {
   /**
    * Here you can define fallback views for document types without
    * a structure definition for the document node. If you want different
@@ -21,18 +17,18 @@ export const getDefaultDocumentNode = props => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const { schemaType } = props
+  const { schemaType } = props;
   if (schemaType == 'post') {
     return S.document().views([
       S.view.form(),
       S.view
         .component(IframePreview)
         .title('Web preview')
-        .options({ previewURL })
-    ])
+        .options({ previewURL }),
+    ]);
   }
-  return S.document().views([S.view.form()])
-}
+  return S.document().views([S.view.form()]);
+};
 
 /**
  * This defines how documents are grouped and listed out in the Studio.
@@ -54,7 +50,7 @@ export default () =>
           S.editor()
             .id('siteSettings')
             .schemaType('siteSettings')
-            .documentId('siteSettings')
+            .documentId('siteSettings'),
         ),
       S.divider(),
       S.listItem()
@@ -76,9 +72,9 @@ export default () =>
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
       ...S.documentTypeListItems().filter(
-        listItem =>
+        (listItem) =>
           !['category', 'author', 'post', 'siteSettings'].includes(
-            listItem.getId()
-          )
-      )
-    ])
+            listItem.getId(),
+          ),
+      ),
+    ]);
