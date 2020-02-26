@@ -26,7 +26,7 @@ function LayoutContainer(props) {
       showNav={showNav}
       siteTitle={site.title}
       onHideNav={() => setShowNav(false)}
-      onShowNav={() => setShowNav(true))}
+      onShowNav={() => setShowNav(true)}
     />
   );
 }
