@@ -12,7 +12,7 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
       onShowNav={onShowNav}
       showNav={showNav}
     />
-    <div className={styles.content}>{children}</div>
+    <main className={styles.content}>{children}</main>
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
         <div className={styles.siteInfo}>
