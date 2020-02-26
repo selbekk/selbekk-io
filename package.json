@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "sanity-gatsby-blog",
+  "name": "selbekk-io",
   "version": "1.0.9",
   "scripts": {
     "build": "lerna run build --parallel",
