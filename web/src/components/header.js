@@ -18,14 +18,6 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
       >
         <Icon symbol="hamburger" />
       </button>
-
-      <nav className={cn(styles.nav, showNav && styles.showNav)}>
-        <ul>
-          <li>
-            <Link to="/archive/">Archive</Link>
-          </li>
-        </ul>
-      </nav>
     </div>
   </div>
 );
