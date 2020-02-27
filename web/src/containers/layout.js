@@ -11,7 +11,6 @@ const query = graphql`
 `;
 
 function LayoutContainer(props) {
-  const [showNav, setShowNav] = useState(false);
   const { site } = useStaticQuery(query);
 
   if (!site) {
@@ -20,15 +19,7 @@ function LayoutContainer(props) {
     );
   }
 
-  return (
-    <Layout
-      {...props}
-      showNav={showNav}
-      siteTitle={site.title}
-      onHideNav={() => setShowNav(false)}
-      onShowNav={() => setShowNav(true)}
-    />
-  );
+  return <Layout {...props} siteTitle={site.title} />;
 }
 
 export default LayoutContainer;
