@@ -61,5 +61,7 @@ export default {
     {
       type: 'code',
     },
+    // Code Sandbox block
+    { type: 'codeSandbox' },
   ],
 };
