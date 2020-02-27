@@ -57,5 +57,9 @@ export default {
       type: 'mainImage',
       options: { hotspot: true },
     },
+    // Code blocks
+    {
+      type: 'code',
+    },
   ],
 };
