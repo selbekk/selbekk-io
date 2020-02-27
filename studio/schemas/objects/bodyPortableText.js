@@ -29,6 +29,8 @@ export default {
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
+          { title: 'Code', value: 'code' },
+          { title: 'Strike', value: 'strike-through' },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
