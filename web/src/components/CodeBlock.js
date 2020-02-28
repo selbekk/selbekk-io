@@ -1,25 +1,20 @@
 import React from 'react';
+import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import js from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
+import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
+import tsx from 'react-syntax-highlighter/dist/esm/languages/prism/tsx';
+import elm from 'react-syntax-highlighter/dist/esm/languages/prism/elm';
+import prism from 'react-syntax-highlighter/dist/esm/styles/prism/prism';
 
-const SyntaxHighlighter = React.lazy(() => import('react-syntax-highlighter'));
-
-// This looks similar enough to work as a decoy while we download the big bad
-// syntax highlighting bundle
-const PlaceholderCodeBlock = ({ children }) => (
-  <pre style={{ padding: '0.5em', backgroundColor: 'rgb(240, 240, 240)' }}>
-    <code>{children}</code>
-  </pre>
-);
+SyntaxHighlighter.registerLanguage('js', js);
+SyntaxHighlighter.registerLanguage('jsx', jsx);
+SyntaxHighlighter.registerLanguage('tsx', tsx);
+SyntaxHighlighter.registerLanguage('elm', js);
 
 export const CodeBlock = ({ node }) => {
   if (!node || !node.code) {
     return null;
   }
   const { language, code } = node;
-  return (
-    <React.Suspense
-      fallback={<PlaceholderCodeBlock>{code}</PlaceholderCodeBlock>}
-    >
-      <SyntaxHighlighter language={language}>{code}</SyntaxHighlighter>
-    </React.Suspense>
-  );
+  return <SyntaxHighlighter language={language}>{code}</SyntaxHighlighter>;
 };
