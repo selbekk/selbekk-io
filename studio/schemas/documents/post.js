@@ -23,6 +23,13 @@ export default {
       },
     },
     {
+      name: 'series',
+      type: 'string',
+      title: 'Series Name',
+      description:
+        'If part of a series, name it here. The name must be a complete match',
+    },
+    {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
