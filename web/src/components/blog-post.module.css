@@ -84,7 +84,18 @@
   }
 }
 
-.categoriesHeadline {
+.postedElsewhere {
+  border-top: 1px solid var(--color-background-body-variant);
+  margin: 2rem 0 3rem;
+}
+
+.categoriesHeadline,
+.postedElsewhereHeadline {
   composes: base from './typography.module.css';
   margin: 0.5rem 0 0;
+}
+
+.postedElsewhereLink {
+  text-decoration: underline;
+  color: inherit;
 }

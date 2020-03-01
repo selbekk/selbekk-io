@@ -24,6 +24,7 @@ export const query = graphql`
       slug {
         current
       }
+      canonicalUrl
       _rawExcerpt(resolveReferences: { maxDepth: 5 })
       _rawBody(resolveReferences: { maxDepth: 5 })
       authors {
@@ -68,6 +69,7 @@ const BlogPostTemplate = (props) => {
           title={post.title || 'Untitled'}
           description={toPlainText(post._rawExcerpt)}
           image={post.mainImage}
+          canonicalUrl={post.canonicalUrl}
         />
       )}
 

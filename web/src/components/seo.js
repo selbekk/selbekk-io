@@ -18,7 +18,15 @@ const detailsQuery = graphql`
   }
 `;
 
-function SEO({ description, lang, meta, keywords, title, image }) {
+function SEO({
+  canonicalUrl,
+  description,
+  lang,
+  meta,
+  keywords,
+  title,
+  image,
+}) {
   const { site } = useStaticQuery(detailsQuery);
 
   const metaDescription = description || (site && site.description) || '';
@@ -73,17 +81,17 @@ function SEO({ description, lang, meta, keywords, title, image }) {
           name: 'twitter:description',
           content: metaDescription,
         },
-      ]
-        .concat(
-          keywords && keywords.length > 0
-            ? {
-                name: 'keywords',
-                content: keywords.join(', '),
-              }
-            : [],
-        )
-        .concat(meta)}
-    />
+        keywords && keywords.length > 0
+          ? {
+              name: 'keywords',
+              content: keywords.join(', '),
+            }
+          : false,
+        ...meta,
+      ].filter(Boolean)}
+    >
+      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    </Helmet>
   );
 }
 

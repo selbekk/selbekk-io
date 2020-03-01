@@ -12,11 +12,19 @@ function BlogPost(props) {
   const {
     _rawBody,
     authors,
+    canonicalUrl,
     categories,
     title,
     mainImage,
     publishedAt,
   } = props;
+
+  const parsedCanonicalUrl = canonicalUrl ? new URL(canonicalUrl).hostname : '';
+  let canonicalDomain = parsedCanonicalUrl.hostname;
+  if (parsedCanonicalUrl.startsWith('www.')) {
+    canonicalDomain = parsedCanonicalUrl.substring(4);
+  }
+
   return (
     <article className={styles.root}>
       {mainImage && mainImage.asset && (
@@ -60,6 +68,16 @@ function BlogPost(props) {
                     <li key={category._id}>{category.title}</li>
                   ))}
                 </ul>
+              </div>
+            )}
+            {canonicalUrl && (
+              <div className={styles.postedElsewhere}>
+                <h3 className={styles.postedElsewhereHeadline}>
+                  Originally posted at{' '}
+                  <a className={styles.postedElsewhereLink} href={canonicalUrl}>
+                    {canonicalDomain}
+                  </a>
+                </h3>
               </div>
             )}
           </aside>
