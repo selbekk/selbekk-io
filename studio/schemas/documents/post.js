@@ -30,6 +30,12 @@ export default {
         'If part of a series, name it here. The name must be a complete match',
     },
     {
+      name: 'canonicalUrl',
+      type: 'url',
+      title: 'Canonical URL',
+      description: 'The URL of where the article was originally posted',
+    },
+    {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
