@@ -19,6 +19,7 @@ import authorReference from './objects/authorReference';
 import codeSandbox from './objects/codeSandbox';
 import codePen from './objects/codePen';
 import youtube from './objects/youtube';
+import twitter from './objects/twitter';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -41,6 +42,7 @@ export default createSchema({
     codeSandbox,
     codePen,
     youtube,
+    twitter,
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

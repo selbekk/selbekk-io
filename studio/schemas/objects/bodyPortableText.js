@@ -1,4 +1,4 @@
-import { FiCodesandbox, FiCodepen, FiYoutube } from 'react-icons/fi';
+import { FiCodesandbox, FiCodepen, FiYoutube, FiTwitter } from 'react-icons/fi';
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -76,5 +76,7 @@ export default {
     { type: 'codePen', icon: FiCodepen },
     // Youtube embeds
     { type: 'youtube', icon: FiYoutube },
+    // Twitter embeds
+    { type: 'twitter', icon: FiTwitter },
   ],
 };

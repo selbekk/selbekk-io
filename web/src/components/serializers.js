@@ -4,6 +4,7 @@ import { CodeBlock } from './CodeBlock';
 import { CodeSandboxBlock } from './CodeSandboxBlock';
 import { CodePenBlock } from './CodePenBlock';
 import { YouTubeBlock } from './YouTubeBlock';
+import { TwitterBlock } from './TwitterBlock';
 
 const serializers = {
   types: {
@@ -13,6 +14,7 @@ const serializers = {
     codeSandbox: CodeSandboxBlock,
     codePen: CodePenBlock,
     youtube: YouTubeBlock,
+    twitter: TwitterBlock,
   },
 };
 
