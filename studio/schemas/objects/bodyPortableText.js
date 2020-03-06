@@ -58,6 +58,17 @@ export default {
     // Code blocks
     {
       type: 'code',
+      options: {
+        languageAlternatives: [
+          { title: 'CSS', value: 'css' },
+          { title: 'HTML', value: 'html' },
+          { title: 'JSON', value: 'json' },
+          { title: 'JSX', value: 'jsx' },
+          { title: 'Markdown', value: 'markdown' },
+          { title: 'Plain text', value: 'text' },
+          { title: 'Elm', value: 'elm' },
+        ],
+      },
     },
     // Code Sandbox block
     { type: 'codeSandbox', icon: FiCodesandbox },
