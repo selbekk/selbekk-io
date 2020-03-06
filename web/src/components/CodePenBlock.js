@@ -19,7 +19,7 @@ export const CodePenBlock = ({ node }) => {
   return (
     <iframe
       height="265"
-      style="width: 100%;"
+      style={{ width: '100%' }}
       scrolling="no"
       src={`https://codepen.io/${username}/embed/preview/${id}?height=265&theme-id=light&default-tab=css,result`}
       frameborder="no"
