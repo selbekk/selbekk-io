@@ -1,3 +1,4 @@
+import { FiCodesandbox } from 'react-icons/fi';
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -50,9 +51,6 @@ export default {
       },
       of: [{ type: 'authorReference' }],
     },
-    // You can add additional types here. Note that you can't use
-    // primitive types such as 'string' and 'number' in the same array
-    // as a block type.
     {
       type: 'mainImage',
       options: { hotspot: true },
@@ -62,6 +60,6 @@ export default {
       type: 'code',
     },
     // Code Sandbox block
-    { type: 'codeSandbox' },
+    { type: 'codeSandbox', icon: FiCodesandbox },
   ],
 };

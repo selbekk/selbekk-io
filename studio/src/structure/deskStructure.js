@@ -1,6 +1,10 @@
 import S from '@sanity/desk-tool/structure-builder';
-import MdSettings from 'react-icons/lib/md/settings';
-import { MdPerson, MdDescription, MdLocalOffer } from 'react-icons/lib/md';
+import {
+  MdSettings,
+  MdPerson,
+  MdDescription,
+  MdLocalOffer,
+} from 'react-icons/md';
 import IframePreview from '../previews/IframePreview';
 
 // Web preview configuration
