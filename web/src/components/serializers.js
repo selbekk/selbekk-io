@@ -3,6 +3,7 @@ import Figure from './Figure';
 import { CodeBlock } from './CodeBlock';
 import { CodeSandboxBlock } from './CodeSandboxBlock';
 import { CodePenBlock } from './CodePenBlock';
+import { YouTubeBlock } from './YouTubeBlock';
 
 const serializers = {
   types: {
@@ -11,6 +12,7 @@ const serializers = {
     code: CodeBlock,
     codeSandbox: CodeSandboxBlock,
     codePen: CodePenBlock,
+    youtube: YouTubeBlock,
   },
 };
 

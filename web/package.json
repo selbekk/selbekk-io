@@ -40,7 +40,9 @@
     "gatsby-image": "^2.0.41",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-react-helmet-async": "^1.0.15",
+    "get-youtube-id": "^1.0.1",
     "react-helmet-async": "^1.0.4",
-    "react-syntax-highlighter": "^12.2.1"
+    "react-syntax-highlighter": "^12.2.1",
+    "react-youtube": "^7.9.0"
   }
 }
