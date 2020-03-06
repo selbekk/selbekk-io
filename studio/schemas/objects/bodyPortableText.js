@@ -1,4 +1,4 @@
-import { FiCodesandbox } from 'react-icons/fi';
+import { FiCodesandbox, FiCodepen } from 'react-icons/fi';
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -61,5 +61,7 @@ export default {
     },
     // Code Sandbox block
     { type: 'codeSandbox', icon: FiCodesandbox },
+    // CodePen block
+    { type: 'codePen', icon: FiCodepen },
   ],
 };

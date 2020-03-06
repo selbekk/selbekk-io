@@ -2,6 +2,7 @@ import React from 'react';
 import Figure from './Figure';
 import { CodeBlock } from './CodeBlock';
 import { CodeSandboxBlock } from './CodeSandboxBlock';
+import { CodePenBlock } from './CodePenBlock';
 
 const serializers = {
   types: {
@@ -9,6 +10,7 @@ const serializers = {
     mainImage: Figure,
     code: CodeBlock,
     codeSandbox: CodeSandboxBlock,
+    codePen: CodePenBlock,
   },
 };
 
