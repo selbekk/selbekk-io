@@ -20,7 +20,7 @@ function BlogPost(props) {
   } = props;
 
   const parsedCanonicalUrl = canonicalUrl ? new URL(canonicalUrl).hostname : '';
-  let canonicalDomain = parsedCanonicalUrl.hostname;
+  let canonicalDomain = parsedCanonicalUrl;
   if (parsedCanonicalUrl.startsWith('www.')) {
     canonicalDomain = parsedCanonicalUrl.substring(4);
   }
