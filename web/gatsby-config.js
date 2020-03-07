@@ -35,5 +35,18 @@ module.exports = {
         overlayDrafts: !isProd,
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'selbekk.io',
+        short_name: 'selbekk',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#000000',
+        display: 'standalone',
+        icon: 'src/images/favicon.png',
+        crossOrigin: `use-credentials`,
+      },
+    },
   ],
 };
