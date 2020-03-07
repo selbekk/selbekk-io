@@ -9,9 +9,8 @@ const getTweetId = (url) => {
   return parsedUrl.pathname.split('/').pop();
 };
 
-export const TwitterBlock = ({ value }) => {
-  const { url } = value;
-  const id = getTweetId(url); // shivvers..
+export const TwitterBlock = ({ value } = {}) => {
+  const id = getTweetId(url ? url.value : null);
   if (!id) return null;
   return <TwitterTweetEmbed tweetId={id} />;
 };
