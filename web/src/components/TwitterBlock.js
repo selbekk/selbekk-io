@@ -9,8 +9,8 @@ const getTweetId = (url) => {
   return parsedUrl.pathname.split('/').pop();
 };
 
-export const TwitterBlock = ({ value } = {}) => {
-  const id = getTweetId(value ? value.url : null);
+export const TwitterBlock = ({ node } = {}) => {
+  const id = getTweetId(node ? node.url : null);
   if (!id) return null;
   return (
     <div style={{ margin: '0 auto' }}>
