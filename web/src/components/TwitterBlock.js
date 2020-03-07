@@ -13,7 +13,7 @@ export const TwitterBlock = ({ node } = {}) => {
   const id = getTweetId(node ? node.url : null);
   if (!id) return null;
   return (
-    <div style={{ margin: '0 auto' }}>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
       <TwitterTweetEmbed tweetId={id} />
     </div>
   );

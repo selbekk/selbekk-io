@@ -15,7 +15,7 @@ const Preview = ({ value }) => {
     return null;
   }
   return (
-    <div style={{ margin: '0 auto' }}>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
       <TwitterTweetEmbed tweetId={id} />
     </div>
   );
