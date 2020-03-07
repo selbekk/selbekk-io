@@ -10,8 +10,7 @@ const getTweetId = (url) => {
 };
 
 const Preview = ({ value }) => {
-  const { url } = value;
-  const id = getTweetId(url); // shivvers..
+  const id = getTweetId(value ? value.url : null);
   if (!id) {
     return null;
   }
