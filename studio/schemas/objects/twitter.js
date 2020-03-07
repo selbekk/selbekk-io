@@ -14,7 +14,11 @@ const Preview = ({ value }) => {
   if (!id) {
     return null;
   }
-  return <TwitterTweetEmbed tweetId={id} />;
+  return (
+    <div style={{ margin: '0 auto' }}>
+      <TwitterTweetEmbed tweetId={id} />
+    </div>
+  );
 };
 
 export default {

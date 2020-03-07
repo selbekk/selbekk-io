@@ -10,7 +10,11 @@ const getTweetId = (url) => {
 };
 
 export const TwitterBlock = ({ value } = {}) => {
-  const id = getTweetId(url ? url.value : null);
+  const id = getTweetId(value ? value.url : null);
   if (!id) return null;
-  return <TwitterTweetEmbed tweetId={id} />;
+  return (
+    <div style={{ margin: '0 auto' }}>
+      <TwitterTweetEmbed tweetId={id} />
+    </div>
+  );
 };
