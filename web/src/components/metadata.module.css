@@ -1,0 +1,32 @@
+.publishedAt {
+  composes: small from './typography.module.css';
+  margin: 2rem 0 0;
+  color: var(--color-gray);
+}
+
+.categories {
+  border-top: 1px solid var(--color-background-body-variant);
+  margin: 2rem 0 3rem;
+
+  @nest & ul {
+    list-style: none;
+    margin: 0.75rem 0;
+    padding: 0;
+  }
+
+  @nest & ul li {
+    padding: 0.25rem 0;
+  }
+}
+
+.postedElsewhere {
+  border-left: 0.5rem solid var(--color-accent);
+  background-color: var(--color-background-body-variant);
+  margin: 2rem 0 3rem;
+  padding: 2rem;
+}
+
+.postedElsewhereLink {
+  text-decoration: underline;
+  color: inherit;
+}

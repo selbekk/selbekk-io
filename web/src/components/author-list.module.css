@@ -1,17 +1,7 @@
 @import '../styles/custom-properties.css';
 
-.root {
-  margin: 2rem 0 3rem;
-  border-top: 1px solid var(--color-background-body-variant);
-}
-
-.headline {
-  composes: base from './typography.module.css';
-  font-weight: 600;
-  margin: 0.5rem 0 0;
-}
-
 .list {
+  display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -19,7 +9,7 @@
 
 .listItem {
   font-size: var(--font-small-size);
-  margin: 1rem 0;
+  margin: 1rem 1rem 0 0rem;
   display: flex;
   justify-content: center;
   align-items: center;
