@@ -1,7 +1,9 @@
+import { FaMicrophoneAlt } from 'react-icons/fa';
 export default {
   name: 'talk',
   type: 'document',
   title: 'Talk',
+  icon: FaMicrophoneAlt,
   fields: [
     {
       name: 'title',
@@ -41,9 +43,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'name',
-      subtitle: 'slug.current',
-      media: 'image',
+      title: 'title',
+      subtitle: 'where',
     },
   },
 };
