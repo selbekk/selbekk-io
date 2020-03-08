@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
@@ -61,6 +62,13 @@ export const query = graphql`
         }
       }
     }
+    file(relativePath: { eq: "selfie.png" }) {
+      childImageSharp {
+        fixed(width: 200, height: 200) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
   }
 `;
 
@@ -97,6 +105,16 @@ const IndexPage = (props) => {
       />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
+        <div style={{ display: 'flex' }}>
+          <Img
+            fixed={data.file.childImageSharp.fixed}
+            style={{ flex: '1 0 25%' }}
+          />
+          <p style={{ fontSize: 24 }}>
+            Hi I'm Kristofer. I'm a full stack engineer that just happens to
+            specialize in React, CSS and accessibility.
+          </p>
+        </div>
         {postNodes && (
           <BlogPostPreviewList
             title="Latest blog posts"
