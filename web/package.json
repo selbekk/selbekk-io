@@ -37,6 +37,7 @@
     "react-dom": "^16.12.0"
   },
   "dependencies": {
+    "@u-wave/react-vimeo": "^0.8.2",
     "classnames": "^2.2.6",
     "gatsby-image": "^2.0.41",
     "gatsby-plugin-google-fonts": "^1.0.1",
