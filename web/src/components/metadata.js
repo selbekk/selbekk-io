@@ -8,6 +8,7 @@ export const Metadata = ({
   authors,
   categories,
   canonicalUrl,
+  readingTime,
 }) => {
   const parsedCanonicalUrl = canonicalUrl ? new URL(canonicalUrl).hostname : '';
   let canonicalDomain = parsedCanonicalUrl;
@@ -20,8 +21,8 @@ export const Metadata = ({
         <div className={styles.publishedAt}>
           {differenceInDays(new Date(publishedAt), new Date()) > 3
             ? distanceInWords(new Date(publishedAt), new Date())
-            : format(new Date(publishedAt), 'MMMM Do, YYYY')}{' '}
-          – Categorized as{' '}
+            : format(new Date(publishedAt), 'MMMM Do, YYYY')}
+          {' – '}An estimated {readingTime.text} – Categorized as{' '}
           {categories.map((category) => category.title).join(', ')}
         </div>
       )}

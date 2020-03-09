@@ -52,6 +52,7 @@
     "react-syntax-highlighter": "^12.2.1",
     "react-twitter-embed": "^3.0.3",
     "react-youtube": "^7.9.0",
+    "reading-time": "^1.2.0",
     "styled-components": "^5.0.1"
   }
 }

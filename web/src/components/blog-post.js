@@ -1,5 +1,6 @@
 import React from 'react';
-import { buildImageObj } from '../lib/helpers';
+import readingTime from 'reading-time';
+import { buildImageObj, toPlainText } from '../lib/helpers';
 import { imageUrlFor } from '../lib/image-url';
 import PortableText from './portableText';
 import Container from './container';
@@ -17,6 +18,11 @@ function BlogPost(props) {
     mainImage,
     publishedAt,
   } = props;
+
+  const estimatedReadingTime = React.useMemo(
+    () => readingTime(toPlainText(_rawBody)),
+    [_rawBody],
+  );
 
   return (
     <article className={styles.root}>
@@ -41,6 +47,7 @@ function BlogPost(props) {
             authors={authors}
             categories={categories}
             canonicalUrl={canonicalUrl}
+            readingTime={estimatedReadingTime}
           />
           <div className={styles.grid}>
             {_rawBody && <PortableText blocks={_rawBody} />}
