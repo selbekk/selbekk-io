@@ -2,11 +2,11 @@
 
 .root {
   max-width: 960px;
-  padding: 1.5em;
+  padding: 1em;
   margin: 0 auto;
 
   @media (--media-min-small) {
-    padding: 2em;
+    padding: 1em;
   }
 }
 

@@ -7,7 +7,7 @@ import GraphQLErrorList from '../components/graphql-error-list';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
 
-import { responsiveTitle1 } from '../components/typography.module.css';
+import { PageTitle } from '../components/typography';
 
 export const query = graphql`
   query ArchivePageQuery {
@@ -51,7 +51,7 @@ const ArchivePage = (props) => {
     <Layout>
       <SEO title="All articles" />
       <Container>
-        <h1 className={responsiveTitle1}>Articles</h1>
+        <PageTitle>Articles</PageTitle>
         {postNodes && postNodes.length > 0 && (
           <BlogPostPreviewGrid nodes={postNodes} />
         )}

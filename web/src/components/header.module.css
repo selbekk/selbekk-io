@@ -19,7 +19,7 @@
 .branding {
   font-family: var(--font-family-serif);
   font-weight: normal;
-  font-size: var(--font-title2-size);
+  font-size: var(--font-title1-size);
   text-align: center;
 
   @media (--media-min-medium) {
@@ -28,7 +28,7 @@
 
   @nest & a {
     display: inline-block;
-    padding: 0.5em;
+    padding: 0.2em 0.5em;
     color: inherit;
     text-decoration: none;
 

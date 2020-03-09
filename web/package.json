@@ -48,6 +48,7 @@
     "gatsby-source-filesystem": "^2.1.50",
     "gatsby-transformer-sharp": "^2.3.17",
     "get-youtube-id": "^1.0.1",
+    "match-sorter": "^4.0.2",
     "react-helmet-async": "^1.0.4",
     "react-syntax-highlighter": "^12.2.1",
     "react-twitter-embed": "^3.0.3",
