@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
@@ -8,6 +7,7 @@ import {
 } from '../lib/helpers';
 import BlogPostPreviewList from '../components/blog-post-preview-list';
 import Container from '../components/container';
+import { FrontPageSplash } from '../components/FrontPageSplash';
 import GraphQLErrorList from '../components/graphql-error-list';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
@@ -105,16 +105,7 @@ const IndexPage = (props) => {
       />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        <div style={{ display: 'flex' }}>
-          <Img
-            fixed={data.file.childImageSharp.fixed}
-            style={{ flex: '1 0 25%' }}
-          />
-          <p style={{ fontSize: 24 }}>
-            Hi I'm Kristofer. I'm a full stack engineer that just happens to
-            specialize in React, CSS and accessibility.
-          </p>
-        </div>
+        <FrontPageSplash imgSrc={data.file.childImageSharp.fixed} />
         {postNodes && (
           <BlogPostPreviewList
             title="Latest blog posts"

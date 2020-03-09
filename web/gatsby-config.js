@@ -12,6 +12,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet-async',
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
