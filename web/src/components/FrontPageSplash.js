@@ -39,8 +39,8 @@ export const FrontPageSplash = ({ imgSrc }) => {
       <Content>
         <StyledImage fixed={imgSrc} />
         <Hero>
-          <strong>Hi I'm Kristofer.</strong> I'm a full stack engineer that just
-          happens to specialize in React, CSS and accessibility.
+          <strong>Hi I'm Kristofer.</strong> I'm a full stack engineer that
+          specializes in React, CSS and accessibility. And 90s hip hop.
         </Hero>
       </Content>
     </Container>
