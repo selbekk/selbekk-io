@@ -14,6 +14,8 @@ const SearchLabel = styled.label`
 `;
 const SearchInput = styled.input`
   appearance: none;
+  background: transparent;
+  color: inherit;
   border: none;
   border-bottom: 0.5rem solid var(--color-text-body);
   border-radius: none;
@@ -55,7 +57,7 @@ function BlogPostPreviewGrid(props) {
       {props.title && <h2 className={styles.headline}>{props.title}</h2>}
       <SearchContainer>
         <SearchLabel htmlFor="article-search-field">
-          What are you looking for?
+          Find the article you're looking for
         </SearchLabel>
         <SearchInput
           type="search"

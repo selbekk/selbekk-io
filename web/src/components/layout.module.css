@@ -14,7 +14,6 @@
 
   @nest & a {
     color: inherit;
-    text-decoration: none;
 
     @media (hover: hover) {
       @nest &:hover {
@@ -30,7 +29,7 @@
   margin: 0 auto;
 
   @media (--media-min-small) {
-    padding: 6em 2em 2em;
+    padding: 2em 2em 2em;
   }
 }
 
