@@ -18,7 +18,7 @@ const SearchInput = styled.input`
   color: inherit;
   border: none;
   border-bottom: 0.5rem solid var(--color-text-body);
-  border-radius: none;
+  border-radius: 0;
   padding: 0.5rem 0;
   width: 100%;
   max-width: 600px;
