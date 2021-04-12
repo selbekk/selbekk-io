@@ -1,12 +1,11 @@
-import { setupNextSanity } from "next-sanity-extra"
+import { setupNextSanity } from "next-sanity-extra";
 
 // Standard sanity config
 // Don't forget token, to get a preview client and authenticated client
 const config = {
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   useCdn: process.env.NODE_ENV === "production",
-  token: process.env.SANITY_API_TOKEN
 };
 
 export const {
@@ -14,5 +13,5 @@ export const {
   imageUrlBuilder,
   PortableText,
   sanityStaticProps,
-  useSanityQuery
- } = setupNextSanity(config);
+  useSanityQuery,
+} = setupNextSanity(config);
