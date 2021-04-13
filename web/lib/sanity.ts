@@ -11,7 +11,7 @@ const config = {
 export const {
   sanityClient,
   imageUrlBuilder,
-  PortableText,
+  PortableText: BasePortableText,
   sanityStaticProps,
   useSanityQuery,
 } = setupNextSanity(config);
