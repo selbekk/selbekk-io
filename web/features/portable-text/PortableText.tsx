@@ -1,4 +1,11 @@
-import { Box, Container, Stack } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  List,
+  ListItem,
+  Stack,
+  UnorderedList,
+} from "@chakra-ui/react";
 import React from "react";
 import { BasePortableText } from "../../lib/sanity";
 import { TextLink } from "../design-system/TextLink";
@@ -14,6 +21,8 @@ const defaultSerializers = {
   types: {
     authorReference: ({ node }: any) => <span>{node.author.name}</span>,
     block: BlockBlock,
+    list: List,
+    listItem: ListItem,
     code: CodeBlock,
     codeSandbox: CodeSandboxBlock,
     codePen: CodePenBlock,
@@ -55,6 +64,8 @@ const blogPostSerializers = {
     twitter: withWrap("wide")(TwitterBlock),
     mainImage: withWrap("wide")(ImageBlock),
   },
+  list: withWrap()((props) => <UnorderedList>{props.children}</UnorderedList>),
+  listItem: (props: any) => <ListItem>{props.children}</ListItem>,
 };
 
 export const BlogPostPortableText = ({ blocks }: any) => {

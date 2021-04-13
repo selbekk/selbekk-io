@@ -9,6 +9,8 @@ import {
   PortableText,
 } from "../../features/portable-text/PortableText";
 import { Seo } from "../../features/seo/Seo";
+import { SiteFooter } from "../../features/site-footer/SiteFooter";
+import { SiteHeader } from "../../features/site-header/SiteHeader";
 import {
   blocksToText,
   imageUrlBuilder,
@@ -55,6 +57,7 @@ function BlogPage(props: SanityProps<BlogPostDetail>) {
   const post = props.data;
   return (
     <Box>
+      <SiteHeader overlay />
       <Seo
         title={post.title}
         description={blocksToText(post.excerpt)}
@@ -69,32 +72,37 @@ function BlogPage(props: SanityProps<BlogPostDetail>) {
         ogType="article"
         // TODO: Add canonical, keywords etc
       />
-      <Image
-        src={
-          imageUrlBuilder.image(post.mainImage).width(1800).fit("crop").url()!
-        }
-        alt={post.title}
-        width="100%"
-        maxWidth="1800px"
-        mx="auto"
-        height="auto"
-        objectFit="cover"
-        mb={[3, 6, 9]}
-      />
-      <Container>
-        <Heading as="h2" fontSize={["2xl", "3rem"]}>
-          {post.title}
-        </Heading>
-        <Text color="gray.500" mb={2}>
-          {new Date(post.publishedAt).toLocaleDateString("en-US", {
-            dateStyle: "long",
-          })}
-        </Text>
-        <Box fontSize="2xl" my={6}>
-          <PortableText blocks={post.excerpt} />
-        </Box>
-      </Container>
-      <BlogPostPortableText blocks={post.body} />
+      <Box as="main">
+        <Image
+          src={
+            imageUrlBuilder.image(post.mainImage).width(1800).fit("crop").url()!
+          }
+          alt={post.title}
+          width="100%"
+          maxWidth="1800px"
+          mx="auto"
+          height="auto"
+          maxHeight="600px"
+          objectFit="cover"
+          objectPosition="center center"
+          mb={[3, 6, 9]}
+        />
+        <Container>
+          <Heading as="h2" fontSize={["2xl", "3rem"]}>
+            {post.title}
+          </Heading>
+          <Text color="gray.500" mb={2}>
+            {new Date(post.publishedAt).toLocaleDateString("en-US", {
+              dateStyle: "long",
+            })}
+          </Text>
+          <Box fontSize="2xl" my={6}>
+            <PortableText blocks={post.excerpt} />
+          </Box>
+        </Container>
+        <BlogPostPortableText blocks={post.body} />
+      </Box>
+      <SiteFooter />
     </Box>
   );
 }

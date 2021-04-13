@@ -6,6 +6,9 @@ import { SanityProps } from "next-sanity-extra";
 import Link from "next/link";
 import React from "react";
 import { PortableText } from "../../features/portable-text/PortableText";
+import { Seo } from "../../features/seo/Seo";
+import { SiteFooter } from "../../features/site-footer/SiteFooter";
+import { SiteHeader } from "../../features/site-header/SiteHeader";
 import { imageUrlBuilder, sanityStaticProps } from "../../lib/sanity";
 
 type BlogPostSummary = {
@@ -28,10 +31,20 @@ export const getStaticProps: GetStaticProps = async (context) => ({
   }),
 });
 
-function BlogPage(props: SanityProps<BlogPostSummary[]>) {
+function BlogListPage(props: SanityProps<BlogPostSummary[]>) {
   return (
-    <Box maxWidth="1200px" px={[6, 3, 0]} mx="auto">
-      <SimpleGrid columns={[1, 1, 2, 3]} columnGap={3} rowGap={[12]}>
+    <Box>
+      <SiteHeader />
+      <Seo
+        title="Content by Kristofer"
+        description="Search through most of the articles and talks Kristofer Giltvedt Selbekk has created the last couple of years"
+      />
+      <SimpleGrid
+        columns={[1, 1, 2, 3, 4, 5]}
+        columnGap={3}
+        rowGap={[12]}
+        as="main"
+      >
         {props.data.map((post) => (
           <Link
             href={`/blog/${post.slug.current}`}
@@ -68,8 +81,9 @@ function BlogPage(props: SanityProps<BlogPostSummary[]>) {
           </Link>
         ))}
       </SimpleGrid>
+      <SiteFooter />
     </Box>
   );
 }
 
-export default BlogPage;
+export default BlogListPage;
