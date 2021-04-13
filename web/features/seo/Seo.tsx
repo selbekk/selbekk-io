@@ -11,7 +11,7 @@ type SeoProps = {
   canonical?: string;
 };
 export const Seo = ({
-  title = "selbekk.io - Articles and talks",
+  title = "Articles and talks by Kristofer Giltvedt Selbekk",
   description = "Read articles, watch talks, and learn more than you need to know about Kristofer Giltvedt Selbekk",
   keywords = "articles, talks, react, javascript, typescript, kristofer giltvedt selbekk",
   ogImage = "https://selbekk.io/og-graph.jpg",
