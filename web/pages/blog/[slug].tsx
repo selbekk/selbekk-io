@@ -4,8 +4,13 @@ import groq from "groq";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { SanityProps } from "next-sanity-extra";
 import React from "react";
-import { BlogPostPortableText } from "../../features/portable-text/PortableText";
 import {
+  BlogPostPortableText,
+  PortableText,
+} from "../../features/portable-text/PortableText";
+import { Seo } from "../../features/seo/Seo";
+import {
+  blocksToText,
   imageUrlBuilder,
   sanityClient,
   sanityStaticProps,
@@ -15,6 +20,7 @@ type BlogPostDetail = {
   title: string;
   slug: { current: string };
   mainImage: any;
+  excerpt: any;
   body: any;
   publishedAt: any;
 };
@@ -24,6 +30,7 @@ export const getStaticProps: GetStaticProps = async (context) => ({
     query: groq`*[_type == "post" && slug.current == $slug][0] {
     slug,
     title,
+    excerpt,
     publishedAt,
     mainImage,
     body
@@ -48,6 +55,20 @@ function BlogPage(props: SanityProps<BlogPostDetail>) {
   const post = props.data;
   return (
     <Box>
+      <Seo
+        title={post.title}
+        description={blocksToText(post.excerpt)}
+        ogImage={
+          imageUrlBuilder
+            .image(post.mainImage)
+            .width(1200)
+            .height(627)
+            .fit("crop")
+            .url()!
+        }
+        ogType="article"
+        // TODO: Add canonical, keywords etc
+      />
       <Image
         src={
           imageUrlBuilder.image(post.mainImage).width(1800).fit("crop").url()!
@@ -69,6 +90,9 @@ function BlogPage(props: SanityProps<BlogPostDetail>) {
             dateStyle: "long",
           })}
         </Text>
+        <Box fontSize="2xl" my={6}>
+          <PortableText blocks={post.excerpt} />
+        </Box>
       </Container>
       <BlogPostPortableText blocks={post.body} />
     </Box>

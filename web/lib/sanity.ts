@@ -8,6 +8,22 @@ const config = {
   useCdn: process.env.NODE_ENV === "production",
 };
 
+/** Turn block content into regular old text
+ *
+ * Ignores non-text content
+ */
+export const blocksToText = (blocks: any, opts = {}) => {
+  return blocks
+    .map((block: any) => {
+      if (block._type !== "block" || !block.children) {
+        return "";
+      }
+
+      return block.children.map((child: any) => child.text).join("");
+    })
+    .join("\n\n");
+};
+
 export const {
   sanityClient,
   imageUrlBuilder,
