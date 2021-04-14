@@ -1,11 +1,13 @@
-import { SimpleGrid, Text } from "@chakra-ui/layout";
+import { Container, SimpleGrid, Stack, Text } from "@chakra-ui/layout";
 import { Box, Heading, Image } from "@chakra-ui/react";
 import groq from "groq";
+import { matchSorter } from "match-sorter";
 import { GetStaticProps } from "next";
 import { SanityProps } from "next-sanity-extra";
 import Link from "next/link";
 import React from "react";
 import { PortableText } from "../../features/portable-text/PortableText";
+import { SearchPanel } from "../../features/search-panel/SearchPanel";
 import { Seo } from "../../features/seo/Seo";
 import { SiteFooter } from "../../features/site-footer/SiteFooter";
 import { SiteHeader } from "../../features/site-header/SiteHeader";
@@ -16,6 +18,7 @@ type BlogPostSummary = {
   slug: { current: string };
   mainImage: any;
   excerpt: any;
+  categories: string[];
   publishedAt: any;
 };
 export const getStaticProps: GetStaticProps = async (context) => ({
@@ -26,12 +29,21 @@ export const getStaticProps: GetStaticProps = async (context) => ({
     title,
     publishedAt,
     mainImage,
-    excerpt
+    excerpt,
+    "categories": categories[]->title
   }`,
   }),
 });
 
-function BlogListPage(props: SanityProps<BlogPostSummary[]>) {
+function BlogListPage({ data: allPosts }: SanityProps<BlogPostSummary[]>) {
+  const [searchString, setSearchString] = React.useState("");
+  const filteredPosts = React.useMemo(
+    () =>
+      matchSorter(allPosts, searchString, {
+        keys: ["title", "categories"],
+      }),
+    [searchString, allPosts]
+  );
   return (
     <Box>
       <SiteHeader />
@@ -39,13 +51,30 @@ function BlogListPage(props: SanityProps<BlogPostSummary[]>) {
         title="Content by Kristofer"
         description="Search through most of the articles and talks Kristofer Giltvedt Selbekk has created the last couple of years"
       />
+      <Container mb={6} maxWidth="80ch">
+        <Stack spacing={3}>
+          <Heading as="h1">Articles</Heading>
+          <Text fontSize="xl">
+            Here, you'll find most of the articles I've written the last couple
+            of years. You can search for specific articles below, or just
+            browse.
+          </Text>
+          <Box>
+            <SearchPanel
+              onChange={({ searchString }) => setSearchString(searchString)}
+            />
+          </Box>
+        </Stack>
+      </Container>
       <SimpleGrid
-        columns={[1, 1, 2, 3, 4, 5]}
+        columns={[1, 1, 2, 3]}
         columnGap={3}
         rowGap={[12]}
         as="main"
+        maxWidth="1200px"
+        mx="auto"
       >
-        {props.data.map((post) => (
+        {filteredPosts.map((post) => (
           <Link
             key={post.slug.current}
             href={`/blog/${post.slug.current}`}

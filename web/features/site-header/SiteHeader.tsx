@@ -27,7 +27,7 @@ export const SiteHeader = ({
       <Heading as="h1" background={background} p={3}>
         {backLink && (
           <Link href={backLink} passHref>
-            <Box as="a" mr={3}>
+            <Box as="a" mr={3} aria-label="Go back">
               &larr;
             </Box>
           </Link>
