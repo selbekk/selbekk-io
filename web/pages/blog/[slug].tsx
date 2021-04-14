@@ -1,9 +1,16 @@
 import { Text } from "@chakra-ui/layout";
-import { Box, Container, Heading, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Heading,
+  Image,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import groq from "groq";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { SanityProps } from "next-sanity-extra";
 import React from "react";
+import { TextLink } from "../../features/design-system/TextLink";
 import {
   BlogPostPortableText,
   PortableText,
@@ -21,6 +28,7 @@ import {
 type BlogPostDetail = {
   title: string;
   slug: { current: string };
+  canonicalUrl?: string;
   mainImage: any;
   excerpt: any;
   body: any;
@@ -31,6 +39,7 @@ export const getStaticProps: GetStaticProps = async (context) => ({
     context,
     query: groq`*[_type == "post" && slug.current == $slug][0] {
     slug,
+    canonicalUrl,
     title,
     excerpt,
     publishedAt,
@@ -53,11 +62,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-function BlogPage(props: SanityProps<BlogPostDetail>) {
-  const post = props.data;
+function BlogPage({ data: post }: SanityProps<BlogPostDetail>) {
+  const canonicalBackground = useColorModeValue("gray.100", "black");
   return (
     <Box>
-      <SiteHeader overlay />
+      <SiteHeader overlay backLink="/blog" />
       <Seo
         title={post.title}
         description={blocksToText(post.excerpt)}
@@ -70,7 +79,7 @@ function BlogPage(props: SanityProps<BlogPostDetail>) {
             .url()!
         }
         ogType="article"
-        // TODO: Add canonical, keywords etc
+        canonical={post.canonicalUrl}
       />
       <Box as="main">
         <Image
@@ -96,6 +105,14 @@ function BlogPage(props: SanityProps<BlogPostDetail>) {
               dateStyle: "long",
             })}
           </Text>
+          {post.canonicalUrl && (
+            <Box p={3} backgroundColor={canonicalBackground}>
+              Originally published at{" "}
+              <TextLink href={post.canonicalUrl}>
+                {new URL(post.canonicalUrl).hostname}
+              </TextLink>
+            </Box>
+          )}
           <Box fontSize="2xl" my={6}>
             <PortableText blocks={post.excerpt} />
           </Box>

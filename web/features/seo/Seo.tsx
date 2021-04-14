@@ -16,6 +16,7 @@ export const Seo = ({
   keywords = "articles, talks, react, javascript, typescript, kristofer giltvedt selbekk",
   ogImage = "https://selbekk.io/og-graph.jpg",
   ogType = "website",
+  canonical,
 }: SeoProps) => {
   const { pathname } = useRouter();
   return (
@@ -23,6 +24,7 @@ export const Seo = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
+      {canonical && <link rel="canonical" href={canonical} />}
       <link
         rel="apple-touch-icon"
         sizes="180x180"

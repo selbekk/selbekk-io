@@ -47,9 +47,9 @@ function BlogListPage(props: SanityProps<BlogPostSummary[]>) {
       >
         {props.data.map((post) => (
           <Link
+            key={post.slug.current}
             href={`/blog/${post.slug.current}`}
             passHref
-            key={post.slug.current}
           >
             <Box as="a">
               <Image
