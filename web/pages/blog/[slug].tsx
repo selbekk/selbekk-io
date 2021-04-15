@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/layout";
+import { HStack, Text } from "@chakra-ui/layout";
 import {
   Box,
   Container,
@@ -11,6 +11,7 @@ import groq from "groq";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { SanityProps } from "next-sanity-extra";
 import React from "react";
+import readingTime from "reading-time";
 import { TextLink } from "../../features/design-system/TextLink";
 import {
   BlogPostPortableText,
@@ -65,12 +66,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 function BlogPage({ data: post }: SanityProps<BlogPostDetail>) {
   const canonicalBackground = useColorModeValue("gray.100", "black");
+  const textExcerpt = React.useMemo(() => blocksToText(post.excerpt), [
+    post.excerpt,
+  ]);
+  const textLength = React.useMemo(
+    () => readingTime(blocksToText(post.body)).text,
+    [post.body]
+  );
   return (
     <Box>
       <SiteHeader overlay backLink="/blog" />
       <Seo
         title={post.title}
-        description={blocksToText(post.excerpt)}
+        description={textExcerpt}
         ogImage={
           imageUrlBuilder
             .image(post.mainImage)
@@ -105,14 +113,19 @@ function BlogPage({ data: post }: SanityProps<BlogPostDetail>) {
           objectPosition="center center"
           mb={[3, 6, 9]}
         />
-        <Container>
+        <Container maxWidth="80ch">
           <Heading as="h2" fontSize={["2xl", "3rem"]}>
             {post.title}
           </Heading>
           <Text color="gray.500" mb={2}>
-            {new Date(post.publishedAt).toLocaleDateString("en-US", {
-              dateStyle: "long",
-            })}
+            <HStack spacing={8}>
+              <Box>
+                {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                  dateStyle: "long",
+                })}
+              </Box>
+              <Box>{textLength}</Box>
+            </HStack>
           </Text>
           {post.canonicalUrl && (
             <Box p={3} backgroundColor={canonicalBackground}>

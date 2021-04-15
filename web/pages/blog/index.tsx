@@ -19,7 +19,7 @@ type BlogPostSummary = {
   mainImage: any;
   excerpt: any;
   categories: string[];
-  publishedAt: any;
+  publishedAt: string;
 };
 export const getStaticProps: GetStaticProps = async (context) => ({
   props: await sanityStaticProps({
@@ -39,9 +39,11 @@ function BlogListPage({ data: allPosts }: SanityProps<BlogPostSummary[]>) {
   const [searchString, setSearchString] = React.useState("");
   const filteredPosts = React.useMemo(
     () =>
-      matchSorter(allPosts, searchString, {
-        keys: ["title", "categories"],
-      }),
+      searchString
+        ? matchSorter(allPosts, searchString, {
+            keys: ["title", "categories"],
+          })
+        : allPosts,
     [searchString, allPosts]
   );
   return (
