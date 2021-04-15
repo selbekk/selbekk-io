@@ -87,7 +87,14 @@ function BlogPage({ data: post }: SanityProps<BlogPostDetail>) {
           src={
             imageUrlBuilder.image(post.mainImage).width(1800).fit("crop").url()!
           }
-          fallback={<Skeleton width={1800} height={[200, 300, 600]} />}
+          fallback={
+            <Skeleton
+              maxWidth="1800px"
+              mx="auto"
+              width="100%"
+              height={[200, 300, 600]}
+            />
+          }
           alt={post.title}
           width="100%"
           maxWidth="1800px"

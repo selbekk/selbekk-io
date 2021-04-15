@@ -96,7 +96,7 @@ function BlogListPage({ data: allPosts }: SanityProps<BlogPostSummary[]>) {
                       .fit("crop")
                       .url()!
                   }
-                  fallback={<Skeleton width={600} height={400} />}
+                  fallback={<Skeleton width="100%" height="200px" />}
                   alt={post.title}
                   width="100%"
                   height="auto"
