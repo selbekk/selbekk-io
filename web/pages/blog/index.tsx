@@ -1,5 +1,5 @@
 import { Container, SimpleGrid, Stack, Text } from "@chakra-ui/layout";
-import { Box, Heading, Image } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image } from "@chakra-ui/react";
 import groq from "groq";
 import { matchSorter } from "match-sorter";
 import { GetStaticProps } from "next";
@@ -45,73 +45,80 @@ function BlogListPage({ data: allPosts }: SanityProps<BlogPostSummary[]>) {
     [searchString, allPosts]
   );
   return (
-    <Box>
+    <Flex flexDirection="column" minHeight="100vh">
       <SiteHeader />
       <Seo
         title="Content by Kristofer"
         description="Search through most of the articles and talks Kristofer Giltvedt Selbekk has created the last couple of years"
       />
-      <Container mb={6} maxWidth="80ch">
-        <Stack spacing={3}>
-          <Heading as="h1">Articles</Heading>
-          <Text fontSize="xl">
-            Here, you'll find most of the articles I've written the last couple
-            of years. You can search for specific articles below, or just
-            browse.
-          </Text>
-          <Box>
-            <SearchPanel
-              onChange={({ searchString }) => setSearchString(searchString)}
-            />
-          </Box>
-        </Stack>
-      </Container>
-      <SimpleGrid
-        columns={[1, 1, 2, 3]}
-        columnGap={3}
-        rowGap={[12]}
-        as="main"
-        maxWidth="1200px"
-        mx="auto"
-      >
-        {filteredPosts.map((post) => (
-          <Link
-            key={post.slug.current}
-            href={`/blog/${post.slug.current}`}
-            passHref
-          >
-            <Box as="a">
-              <Image
-                src={
-                  imageUrlBuilder
-                    .image(post.mainImage)
-                    .width(600)
-                    .height(400)
-                    .fit("crop")
-                    .url()!
-                }
-                alt={post.title}
-                width="100%"
-                height="auto"
-                objectFit="cover"
+      <Box flex="1">
+        <Container mb={6} maxWidth="80ch">
+          <Stack spacing={3}>
+            <Heading as="h1">Articles</Heading>
+            <Text fontSize="xl">
+              Here, you'll find most of the articles I've written the last
+              couple of years. You can search for specific articles below, or
+              just browse.
+            </Text>
+            <Box>
+              <SearchPanel
+                onChange={({ searchString }) => setSearchString(searchString)}
               />
-              <Box p={3}>
-                <Heading as="h3" fontSize="2xl">
-                  {post.title}
-                </Heading>
-                <Text color="gray.500" mb={2}>
-                  {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                    dateStyle: "long",
-                  })}
-                </Text>
-                <PortableText blocks={post.excerpt} />
-              </Box>
             </Box>
-          </Link>
-        ))}
-      </SimpleGrid>
+          </Stack>
+        </Container>
+        {filteredPosts.length === 0 && (
+          <Text textAlign="center" fontWeight="bold">
+            No articles matched your search 👎
+          </Text>
+        )}
+        <SimpleGrid
+          columns={[1, 1, 2, 3]}
+          columnGap={3}
+          rowGap={[12]}
+          as="main"
+          maxWidth="1200px"
+          mx="auto"
+        >
+          {filteredPosts.map((post) => (
+            <Link
+              key={post.slug.current}
+              href={`/blog/${post.slug.current}`}
+              passHref
+            >
+              <Box as="a">
+                <Image
+                  src={
+                    imageUrlBuilder
+                      .image(post.mainImage)
+                      .width(600)
+                      .height(400)
+                      .fit("crop")
+                      .url()!
+                  }
+                  alt={post.title}
+                  width="100%"
+                  height="auto"
+                  objectFit="cover"
+                />
+                <Box p={3}>
+                  <Heading as="h3" fontSize="2xl">
+                    {post.title}
+                  </Heading>
+                  <Text color="gray.500" mb={2}>
+                    {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                      dateStyle: "long",
+                    })}
+                  </Text>
+                  <PortableText blocks={post.excerpt} />
+                </Box>
+              </Box>
+            </Link>
+          ))}
+        </SimpleGrid>
+      </Box>
       <SiteFooter />
-    </Box>
+    </Flex>
   );
 }
 
