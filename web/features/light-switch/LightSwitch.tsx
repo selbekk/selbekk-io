@@ -1,5 +1,5 @@
 import { useColorMode } from "@chakra-ui/color-mode";
-import { Button } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import * as React from "react";
 
 export const LightSwitch = () => {
@@ -9,10 +9,10 @@ export const LightSwitch = () => {
       size="sm"
       variant="outline"
       colorScheme="gray"
+      leftIcon={<Box>{colorMode === "light" ? "🌘" : "🌖"}</Box>}
       onClick={toggleColorMode}
     >
-      {colorMode === "light" ? "🌘" : "🌖"} Turn{" "}
-      {colorMode === "light" ? "off" : "on"} the lights
+      Turn {colorMode === "light" ? "off" : "on"} the lights
     </Button>
   );
 };
