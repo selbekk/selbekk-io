@@ -4,6 +4,7 @@ import {
   Flex,
   Heading,
   Image,
+  Skeleton,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -22,6 +23,7 @@ export default function Home() {
             src="/selfie.jpg"
             objectFit="cover"
             objectPosition="center center"
+            fallback={<Skeleton width="100%" height="100%" maxHeight="100vh" />}
             width="100%"
             height="100%"
             alt="Kristofer Giltvedt Selbekk"
