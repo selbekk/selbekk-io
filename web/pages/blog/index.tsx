@@ -1,5 +1,5 @@
 import { Container, SimpleGrid, Stack, Text } from "@chakra-ui/layout";
-import { Box, Flex, Heading, Image } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, Skeleton } from "@chakra-ui/react";
 import groq from "groq";
 import { matchSorter } from "match-sorter";
 import { GetStaticProps } from "next";
@@ -96,6 +96,7 @@ function BlogListPage({ data: allPosts }: SanityProps<BlogPostSummary[]>) {
                       .fit("crop")
                       .url()!
                   }
+                  fallback={<Skeleton width={600} height={400} />}
                   alt={post.title}
                   width="100%"
                   height="auto"
