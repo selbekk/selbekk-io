@@ -41,8 +41,9 @@ export default function Home() {
                 husband, dad, developer, writer and speaker.
               </Text>
               <Text fontSize="xl">
-                Go browse some of my <TextLink href="/blog">articles</TextLink>{" "}
-                or discover my <TextLink href="/projects">projects</TextLink>.
+                Go browse some of my <TextLink href="/blog">articles</TextLink>,{" "}
+                watch my <TextLink href="/talks">talks</TextLink> or discover my{" "}
+                <TextLink href="/projects">projects</TextLink>.
               </Text>
               <Text fontSize="xl">
                 Here's my{" "}

@@ -21,6 +21,11 @@ export default {
       },
     },
     {
+      name: 'mainImage',
+      type: 'mainImage',
+      title: 'Main image',
+    },
+    {
       name: 'when',
       type: 'datetime',
       title: 'When was the talk recorded?',
@@ -36,9 +41,27 @@ export default {
       title: 'Video URL',
     },
     {
+      name: 'excerpt',
+      type: 'bioPortableText',
+      title: 'Short summary',
+    },
+    {
       name: 'description',
       type: 'bioPortableText',
       title: 'Talk description',
+    },
+    {
+      name: 'categories',
+      type: 'array',
+      title: 'Categories',
+      of: [
+        {
+          type: 'reference',
+          to: {
+            type: 'category',
+          },
+        },
+      ],
     },
   ],
   preview: {
