@@ -7,6 +7,7 @@ import {
   Skeleton,
   Stack,
   Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 import { TextLink } from "../features/design-system/TextLink";
@@ -14,13 +15,14 @@ import { Seo } from "../features/seo/Seo";
 import { SiteFooter } from "../features/site-footer/SiteFooter";
 
 export default function Home() {
+  const imageUrl = useColorModeValue("/selfie.jpg", "/selfie-dark.jpg");
   return (
     <Box>
       <Seo />
       <Flex flexDirection={["column", "column", "row"]} as="main">
         <Box flex="0 0 50%" height={["50vh", "100vh"]}>
           <Image
-            src="/selfie.jpg"
+            src={imageUrl}
             objectFit="cover"
             objectPosition="center center"
             fallback={<Skeleton width="100%" height="100%" maxHeight="100vh" />}
