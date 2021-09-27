@@ -66,9 +66,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 function BlogPage({ data: post }: SanityProps<BlogPostDetail>) {
   const canonicalBackground = useColorModeValue("gray.100", "black");
-  const textExcerpt = React.useMemo(() => blocksToText(post.excerpt), [
-    post.excerpt,
-  ]);
+  const textExcerpt = React.useMemo(
+    () => blocksToText(post.excerpt),
+    [post.excerpt]
+  );
   const textLength = React.useMemo(
     () => readingTime(blocksToText(post.body)).text,
     [post.body]
