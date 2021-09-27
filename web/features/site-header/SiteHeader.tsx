@@ -24,16 +24,22 @@ export const SiteHeader = ({
       right="0"
       top="0"
     >
-      <Heading as="h1" background={background} p={3}>
-        {backLink && (
-          <Link href={backLink} passHref>
-            <Box as="a" mr={3} aria-label="Go back">
-              &larr;
-            </Box>
-          </Link>
-        )}
-        <Link href="/" passHref>
-          <Box as="a">selbekk</Box>
+      <Heading as="h1" background={background} overflow="hidden">
+        <Link href={backLink || "/"} passHref>
+          <Box
+            as="a"
+            p={3}
+            display="block"
+            _hover={backLink ? { transform: "translateX(-10px)" } : undefined}
+            transition=".1s ease-out"
+          >
+            {backLink && (
+              <Box as="span" mr={3} aria-label="Go back">
+                &larr;
+              </Box>
+            )}
+            selbekk
+          </Box>
         </Link>
       </Heading>
       {children}
