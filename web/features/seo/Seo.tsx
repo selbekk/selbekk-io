@@ -14,7 +14,7 @@ export const Seo = ({
   title = "Articles and talks by Kristofer Giltvedt Selbekk",
   description = "Read articles, watch talks, and learn more than you need to know about Kristofer Giltvedt Selbekk",
   keywords = "articles, talks, react, javascript, typescript, kristofer giltvedt selbekk",
-  ogImage = "https://selbekk.io/og-graph.jpg",
+  ogImage = "https://selbekk.io/og-image.jpg",
   ogType = "website",
   canonical,
 }: SeoProps) => {
