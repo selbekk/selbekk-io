@@ -12,29 +12,13 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/dashboard",
     "@sanity/desk-tool",
-    "dashboard-widget-structure-menu",
-    "dashboard-widget-document-list",
-    "dashboard-widget-netlify",
     "@sanity/code-input"
   ],
   "parts": [
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema.js"
-    },
-    {
-      "implements": "part:@sanity/base/theme/variables/override-style",
-      "path": "./src/styles/variables.css"
-    },
-    {
-      "name": "part:@sanity/desk-tool/structure",
-      "path": "./src/structure/deskStructure.js"
-    },
-    {
-      "implements": "part:@sanity/dashboard/config",
-      "path": "./src/dashboardConfig.js"
     }
   ]
 }

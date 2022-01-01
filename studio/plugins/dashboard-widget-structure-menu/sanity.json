@@ -4,10 +4,5 @@
     "compiled": "./lib"
   },
   "parts": [
-    {
-      "name": "part:@sanity/dashboard/widget/create",
-      "implements": "part:@sanity/dashboard/widget",
-      "path": "widget.js"
-    }
   ]
 }
