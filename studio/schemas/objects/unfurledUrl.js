@@ -1,24 +1,23 @@
-import { PreviewLink } from "@opengraphninja/react";
-import "@opengraphninja/react/styles.css?raw";
+import { PreviewLink } from '@opengraphninja/react';
+import '@opengraphninja/react/styles.css?raw';
+import React from 'react';
 
 export default {
-  type: "object",
-  name: "unfurledUrl",
-  title: "Unfurled URL",
+  type: 'object',
+  name: 'unfurledUrl',
+  title: 'Unfurled URL',
   fields: [
     {
-      name: "url",
-      type: "url",
-      description: "The URL to unfurl",
+      name: 'url',
+      type: 'url',
+      description: 'The URL to unfurl',
       validation: (Rule) => Rule.required(),
     },
   ],
   preview: {
     select: {
-      href: "url",
+      href: 'url',
     },
-    component: (props) => (
-      <PreviewLink href={props.value.href} />
-    ),
+    component: (props) => <PreviewLink href={props.value.href} />,
   },
 };
