@@ -33,6 +33,7 @@ export const getStaticProps: GetStaticProps = async (context) => ({
     "categories": categories[]->title
   }`,
   }),
+  revalidate: 60,
 });
 
 function BlogListPage({ data: allPosts }: SanityProps<BlogPostSummary[]>) {

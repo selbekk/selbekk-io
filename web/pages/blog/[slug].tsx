@@ -50,6 +50,7 @@ export const getStaticProps: GetStaticProps = async (context) => ({
   }`,
     params: { slug: context.params!.slug },
   }),
+  revalidate: 60,
 });
 
 export const getStaticPaths: GetStaticPaths = async () => {
