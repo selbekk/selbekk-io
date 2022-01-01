@@ -13,6 +13,7 @@
     "test": "sanity check"
   },
   "dependencies": {
+    "@opengraphninja/react": "^0.1.6",
     "@sanity/base": "^2.23.2",
     "@sanity/cli": "^2.23.2",
     "@sanity/code-input": "^2.23.2",

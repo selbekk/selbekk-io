@@ -15,6 +15,7 @@ import { CodePenBlock } from "./blocks/CodePenBlock";
 import { CodeSandboxBlock } from "./blocks/CodeSandboxBlock";
 import { ImageBlock } from "./blocks/ImageBlock";
 import { TwitterBlock } from "./blocks/TwitterBlock";
+import { UnfurledUrlBlock } from "./blocks/UnfurledUrlBlock";
 import { YouTubeBlock } from "./blocks/YouTubeBlock";
 
 const defaultSerializers = {
@@ -29,6 +30,7 @@ const defaultSerializers = {
     youtube: YouTubeBlock,
     twitter: TwitterBlock,
     mainImage: ImageBlock,
+    unfurledUrl: UnfurledUrlBlock,
   },
   marks: {
     link: (props: any) => (
@@ -42,15 +44,17 @@ export const PortableText = ({ blocks }: any) => {
   return <BasePortableText blocks={blocks} serializers={defaultSerializers} />;
 };
 
-const withWrap = (maxWidth: "wide" | "default" = "default") => (
-  Component: React.ComponentType
-) => (props: any) => (
-  <Box>
-    <Container maxWidth={maxWidth === "wide" ? "80ch" : "60ch"}>
-      <Component {...props} />
-    </Container>
-  </Box>
-);
+const withWrap =
+  (maxWidth: "wide" | "default" = "default") =>
+  (Component: React.ComponentType) =>
+  (props: any) =>
+    (
+      <Box>
+        <Container maxWidth={maxWidth === "wide" ? "80ch" : "60ch"}>
+          <Component {...props} />
+        </Container>
+      </Box>
+    );
 
 const blogPostSerializers = {
   ...defaultSerializers,
@@ -63,6 +67,7 @@ const blogPostSerializers = {
     youtube: withWrap("wide")(YouTubeBlock),
     twitter: withWrap("wide")(TwitterBlock),
     mainImage: withWrap("wide")(ImageBlock),
+    unfurledUrl: withWrap("wide")(UnfurledUrlBlock),
   },
   list: withWrap()((props) => <UnorderedList>{props.children}</UnorderedList>),
   listItem: (props: any) => <ListItem>{props.children}</ListItem>,

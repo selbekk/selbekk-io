@@ -865,6 +865,11 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.0.7.tgz#8d75d3b6a872ab97ab73e3b4173d56dbb2991917"
   integrity sha512-frEWtbf+q8Oz4e2UqKJrNssk6DZ6/NLCQXn5/ORWE9dPAfe9XS6aK5FRZ6DuEPmmKd5gOoRkKJFFz5nYd+TeyQ==
 
+"@opengraphninja/react@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@opengraphninja/react/-/react-0.1.6.tgz#19e508c7a9bc12a214eafc60ebc17acff01b5106"
+  integrity sha512-kz/ouGrna+6F/CU8izhj1apywZD0MMUzy3i1ZAy/6jCoNx0LFGsG3UexhPuUMtkQPStrsKvkEEWpA32I5T7ehw==
+
 "@popperjs/core@^2.9.3":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.0.tgz#6734f8ebc106a0860dff7f92bf90df193f0935d7"
