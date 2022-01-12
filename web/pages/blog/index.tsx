@@ -21,10 +21,11 @@ type BlogPostSummary = {
   categories: string[];
   publishedAt: string;
 };
-export const getStaticProps: GetStaticProps = async (context) => ({
-  props: await sanityStaticProps({
-    context,
-    query: groq`*[_type == "post"] | order(publishedAt desc) {
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: await sanityStaticProps({
+      context,
+      query: groq`*[_type == "post" && publishedAt <= $now] | order(publishedAt desc) {
     slug,
     title,
     publishedAt,
@@ -32,9 +33,11 @@ export const getStaticProps: GetStaticProps = async (context) => ({
     excerpt,
     "categories": categories[]->title
   }`,
-  }),
-  revalidate: 60,
-});
+      params: { now: new Date().toISOString() },
+    }),
+    revalidate: 60,
+  };
+};
 
 function BlogListPage({ data: allPosts }: SanityProps<BlogPostSummary[]>) {
   const [searchString, setSearchString] = React.useState("");
