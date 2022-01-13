@@ -116,7 +116,7 @@ function BlogPage({ data: post }: SanityProps<BlogPostDetail>) {
           mb={[3, 6, 9]}
         />
         <Container maxWidth="80ch">
-          <Heading as="h2" fontSize={["2xl", "3rem"]}>
+          <Heading as="h2" fontSize={["4xl", "3rem"]}>
             {post.title}
           </Heading>
           <Text color="gray.500" mb={2}>
@@ -137,7 +137,7 @@ function BlogPage({ data: post }: SanityProps<BlogPostDetail>) {
               </TextLink>
             </Box>
           )}
-          <Box fontSize="2xl" my={6}>
+          <Box fontSize="2xl" my={[6, 12]}>
             <PortableText blocks={post.excerpt} />
           </Box>
         </Container>

@@ -15,11 +15,11 @@ export const BlockBlock = ({ node, children }: any) => {
       <Heading
         as={node.style}
         fontSize={fontSizes[node.style as keyof typeof fontSizes]}
-        pt={"1.5em"}
+        pt={"1em"}
       >
         {children}
       </Heading>
     );
   }
-  return <Text>{children}</Text>;
+  return <Text fontSize="1.1em">{children}</Text>;
 };
