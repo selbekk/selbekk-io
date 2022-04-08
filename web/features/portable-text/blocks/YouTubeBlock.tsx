@@ -11,6 +11,7 @@ export const YouTubeBlock = ({ node }: any) => {
   const height = useBreakpointValue({ base: "300px", md: "500px" });
   return (
     <Box boxShadow="lg">
+      {/* @ts-ignore */}Ppor
       <YouTube videoId={id as string} opts={{ width: "100%", height }} />
     </Box>
   );

@@ -1,6 +1,6 @@
 import getYoutubeId from "get-youtube-id";
 import * as React from "react";
-import Youtube from "react-youtube";
+import YouTube from "react-youtube";
 
 type VideoViewerProps = {
   src: string;
@@ -9,7 +9,8 @@ type VideoViewerProps = {
 export const VideoViewer = ({ src }: VideoViewerProps) => {
   if (src.includes("youtube.com")) {
     const id = getYoutubeId(src) || undefined;
-    return <Youtube videoId={id} opts={{ width: "100%", height: "600px" }} />;
+    // @ts-ignore
+    return <YouTube videoId={id} opts={{ width: "100%", height: "600px" }} />;
   }
   if (src.includes("vimeo.com")) {
     const id = src.split("/").pop();

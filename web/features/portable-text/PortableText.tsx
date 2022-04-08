@@ -51,6 +51,7 @@ const withWrap =
     (
       <Box>
         <Container maxWidth={maxWidth === "wide" ? "80ch" : "60ch"}>
+          {/*@ts-ignore*/}
           <Component {...props} />
         </Container>
       </Box>
