@@ -11,7 +11,7 @@ import groq from "groq";
 import React from "react";
 import readingTime from "reading-time";
 import type { LoaderFunction, MetaFunction } from "remix";
-import { useLoaderData } from "remix";
+import { json, useLoaderData } from "remix";
 import invariant from "tiny-invariant";
 import { TextLink } from "~/features/design-system/TextLink";
 import { PortableText } from "~/features/portable-text/PortableText";
@@ -55,7 +55,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   if (!post) {
     throw new Response("Article not found", { status: 404 });
   }
-  return { post };
+  return json({ post });
 };
 
 export const meta: MetaFunction = ({ data }) => {

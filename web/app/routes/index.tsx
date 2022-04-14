@@ -9,8 +9,15 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import type { HeadersFunction } from "remix";
 import { TextLink } from "~/features/design-system/TextLink";
 import { SiteFooter } from "~/features/site-footer/SiteFooter";
+
+export const headers: HeadersFunction = () => {
+  return {
+    "Cache-Control": "max-age=604800, stale-while-revalidate=86400",
+  };
+};
 
 export default function Home() {
   const imageUrl = useColorModeValue("/selfie.webp", "/selfie-dark.webp");

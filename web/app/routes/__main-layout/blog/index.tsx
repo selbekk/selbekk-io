@@ -1,7 +1,7 @@
 import { Box, Container, Heading, Stack, Text } from "@chakra-ui/react";
 import groq from "groq";
 import type { LoaderFunction } from "remix";
-import { useLoaderData } from "remix";
+import { json, useLoaderData } from "remix";
 import { SearchableGrid } from "~/features/searchable-grid/SearchableGrid";
 import { getClient } from "~/utils/sanity/client";
 
@@ -29,7 +29,7 @@ export const loader: LoaderFunction = async () => {
     }`,
     { now: new Date().toISOString() }
   );
-  return { posts };
+  return json({ posts });
 };
 
 export const meta = () => ({

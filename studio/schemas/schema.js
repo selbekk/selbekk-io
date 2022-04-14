@@ -6,7 +6,6 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import author from './documents/author';
 import category from './documents/category';
 import post from './documents/post';
-import siteSettings from './documents/siteSettings';
 import talk from './documents/talk';
 import authorReference from './objects/authorReference';
 import bioPortableText from './objects/bioPortableText';
@@ -29,7 +28,6 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-    siteSettings,
     post,
     category,
     author,

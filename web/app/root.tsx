@@ -2,7 +2,7 @@ import { Box, Center, ChakraProvider, Heading, Text } from "@chakra-ui/react";
 import { withEmotionCache } from "@emotion/react";
 import type { ReactNode } from "react";
 import { useContext, useEffect } from "react";
-import type { LinksFunction, LoaderFunction, MetaFunction } from "remix";
+import type { HeadersFunction, LinksFunction, MetaFunction } from "remix";
 import {
   Links,
   LiveReload,
@@ -18,16 +18,15 @@ import {
   ServerStyleContext,
 } from "./features/chakra-setup/styleContext";
 import { RootErrorBoundary } from "./features/error-boundary/RootErrorBoundary";
-import type { SiteSettings } from "./utils/siteSettings.server";
-import { getSiteSettings } from "./utils/siteSettings.server";
 
-export const meta: MetaFunction = ({ data }: { data: LoaderData }) => {
-  const { title, description, keywords } = data.siteSettings;
-
+export const meta: MetaFunction = () => {
+  const title = "Kristofer Giltvedt Selbekk - selbekk.io";
+  const description =
+    "Articles about React, Elm, CSS and accessibility. Written by Kristofer Giltvedt Selbekk, for the community.";
   return {
     title,
     description,
-    keywords: keywords.join(", "),
+    keywords: "React, JavaScript, TypeScript, front end development, selbekk",
     charset: "utf-8",
     viewport: "width=device-width, initial-scale=1",
     "og:image": "https://selbekk.io/og-image.jpg",
@@ -38,6 +37,12 @@ export const meta: MetaFunction = ({ data }: { data: LoaderData }) => {
     "twitter:card": "summary",
     "twitter:author": "@selbekk",
     "twitter:site": "@selbekk",
+  };
+};
+
+export const headers: HeadersFunction = () => {
+  return {
+    "Cache-Control": "max-age=3600, stale-while-revalidate=360",
   };
 };
 
@@ -66,15 +71,6 @@ export const links: LinksFunction = () => {
       href: "/site.webmanifest",
     },
   ];
-};
-
-export type LoaderData = {
-  siteSettings: SiteSettings;
-};
-export const loader: LoaderFunction = async () => {
-  return {
-    siteSettings: await getSiteSettings(),
-  };
 };
 
 /**
