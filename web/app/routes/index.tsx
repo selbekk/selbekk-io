@@ -13,7 +13,7 @@ import { TextLink } from "~/features/design-system/TextLink";
 import { SiteFooter } from "~/features/site-footer/SiteFooter";
 
 export default function Home() {
-  const imageUrl = useColorModeValue("/selfie.jpg", "/selfie-dark.jpg");
+  const imageUrl = useColorModeValue("/selfie.webp", "/selfie-dark.webp");
   return (
     <Box>
       <Flex flexDirection={["column", "column", "row"]} as="main">
