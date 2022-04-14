@@ -71,6 +71,7 @@ export const meta: MetaFunction = ({ data }) => {
       .width(1200)
       .height(627)
       .fit("crop")
+      .format("webp")
       .url(),
     "og:image:width": "1200",
     "og:image:height": "627",
@@ -97,6 +98,7 @@ export default function BlogPage() {
           .image(post.mainImage)
           .width(1800)
           .fit("crop")
+          .format("webp")
           .url()}
         fallback={
           <Skeleton
@@ -120,7 +122,7 @@ export default function BlogPage() {
         <Heading as="h2" fontSize={["4xl", "3rem"]}>
           {post.title}
         </Heading>
-        <Box color="gray.500" mb={2}>
+        <Box color="gray.800" mb={2}>
           <Stack direction="row" spacing={8}>
             <Box>
               {new Date(post.publishedAt).toLocaleDateString("en-US", {
