@@ -11,7 +11,6 @@ import { matchSorter } from "match-sorter";
 import { useMemo, useState } from "react";
 import { Link } from "remix";
 import { imageUrlBuilder } from "~/utils/sanity/image";
-import { PortableText } from "../portable-text/PortableText";
 import { SearchPanel } from "./SearchPanel";
 
 type SearchableListProps = {
@@ -31,7 +30,7 @@ export const SearchableGrid = ({ items }: SearchableListProps) => {
   );
   return (
     <>
-      <Container maxWidth="80ch">
+      <Container maxWidth="80ch" mt={6}>
         <Box mb={6}>
           <SearchPanel
             onChange={({ searchString }) => setSearchString(searchString)}
@@ -66,6 +65,7 @@ export const SearchableGrid = ({ items }: SearchableListProps) => {
                   .width(600)
                   .height(400)
                   .fit("crop")
+                  .format("webp")
                   .url()!
               }
               fallback={<Skeleton width="100%" height="200px" />}
@@ -73,12 +73,14 @@ export const SearchableGrid = ({ items }: SearchableListProps) => {
               width="100%"
               height="auto"
               objectFit="cover"
+              overflow="hidden"
+              borderRadius="md"
             />
             <Box p={3}>
               <Heading as="h3" fontSize="2xl">
                 {item.title}
               </Heading>
-              <Text color="gray.500" mb={2}>
+              <Text color="gray.700" mb={2}>
                 {new Date(item.publishedAt).toLocaleDateString("en-US", {
                   dateStyle: "long",
                 })}
