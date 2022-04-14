@@ -1,12 +1,12 @@
 # selbekk.io
 
-My web site, based on Next and Sanity.
+My web site, based on Remix and Sanity.
 
 ## Development
 
 Clone and install dependencies with npm, and start a local dev server with `npm run dev`.
 
-The repo is split in two - a `studio` folder and a `web` folder. The `studio` folder contains all schema and plugin code for our CMS - Sanity. The `web` folder contains the NextJS site that generates the web site.
+The repo is split in two - a `studio` folder and a `web` folder. The `studio` folder contains all schema and plugin code for our CMS - Sanity. The `web` folder contains the Remix site that generates the web site.
 
 ## Deployment
 
