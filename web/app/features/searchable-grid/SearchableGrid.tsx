@@ -77,7 +77,7 @@ export const SearchableGrid = ({ items }: SearchableListProps) => {
               borderRadius="md"
             />
             <Box p={3}>
-              <Heading as="h3" fontSize="2xl">
+              <Heading as="h2" fontSize="2xl">
                 {item.title}
               </Heading>
               <Text color="gray.700" mb={2}>
