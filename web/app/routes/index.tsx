@@ -15,7 +15,7 @@ import { SiteFooter } from "~/features/site-footer/SiteFooter";
 
 export const headers: HeadersFunction = () => {
   return {
-    "Cache-Control": "max-age=604800, stale-while-revalidate=86400",
+    "Cache-Control": "s-maxage=86400, stale-while-revalidate=604800",
   };
 };
 
