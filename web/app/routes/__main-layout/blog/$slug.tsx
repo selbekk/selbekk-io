@@ -121,8 +121,10 @@ export default function BlogPage() {
           .url()}
         alt={post.title}
         width="100%"
+        __css={{ aspectRatio: 4 / 3 }}
         maxWidth="1800px"
         mx="auto"
+        height="auto"
         maxHeight="600px"
         objectFit="cover"
         objectPosition="center center"
@@ -155,7 +157,7 @@ export default function BlogPage() {
             </TextLink>
           </Box>
         )}
-        <Box fontSize="2xl" my={[6, 12]}>
+        <Box fontSize="xl" mt={4} mb={8}>
           <PortableText blocks={post.excerpt} />
         </Box>
       </Container>
