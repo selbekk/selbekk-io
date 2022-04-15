@@ -5,6 +5,7 @@ import { Link as RemixLink } from "remix";
 type TextLinkProps = LinkProps & {
   /** The URL */
   href: string;
+  prefetch?: "intent" | "render" | "none";
 };
 /** Link to be used with inline text
  *
@@ -13,6 +14,7 @@ type TextLinkProps = LinkProps & {
 export const TextLink: React.FC<TextLinkProps> = ({
   href,
   children,
+  prefetch,
   ...rest
 }) => {
   if (/^(mailto:|https?:\/\/)/.test(href)) {
@@ -32,6 +34,7 @@ export const TextLink: React.FC<TextLinkProps> = ({
     <Link
       as={RemixLink}
       to={href}
+      prefetch={prefetch}
       textDecoration="underline"
       _hover={{ textDecoration: "none" }}
       {...rest}

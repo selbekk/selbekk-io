@@ -53,6 +53,7 @@ export const SearchableGrid = ({ items }: SearchableListProps) => {
         {filteredItems.map((item) => (
           <Box
             as={Link}
+            prefetch="intent"
             to={`/${item._type === "talk" ? "talks" : "blog"}/${
               item.slug.current
             }`}
