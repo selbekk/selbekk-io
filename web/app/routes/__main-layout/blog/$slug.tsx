@@ -3,14 +3,13 @@ import {
   Container,
   Heading,
   Image,
-  Skeleton,
   Stack,
   useColorModeValue,
 } from "@chakra-ui/react";
 import groq from "groq";
 import React from "react";
 import readingTime from "reading-time";
-import type { LoaderFunction, MetaFunction } from "remix";
+import type { HeadersFunction, LoaderFunction, MetaFunction } from "remix";
 import { json, useLoaderData } from "remix";
 import invariant from "tiny-invariant";
 import { TextLink } from "~/features/design-system/TextLink";
@@ -84,6 +83,15 @@ export const meta: MetaFunction = ({ data }) => {
   return metadata;
 };
 
+export const headers: HeadersFunction = () => {
+  return {
+    "Cache-Control": "s-maxage=360, stale-while-revalidate=3600",
+  };
+};
+
+const getImageUrlForSize = (size: number, image: any) =>
+  imageUrlBuilder.image(image).width(size).fit("crop").format("webp").url();
+
 export default function BlogPage() {
   const { post } = useLoaderData<LoaderData>();
   const canonicalBackground = useColorModeValue("gray.100", "black");
@@ -94,25 +102,27 @@ export default function BlogPage() {
   return (
     <Box>
       <Image
-        src={imageUrlBuilder
+        src={getImageUrlForSize(1800, post.mainImage)}
+        srcSet={`${getImageUrlForSize(320, post.mainImage)} 320w,
+          ${getImageUrlForSize(640, post.mainImage)} 640w,
+          ${getImageUrlForSize(1200, post.mainImage)} 1200w,
+          ${getImageUrlForSize(1800, post.mainImage)},`}
+        sizes={`
+          (max-width: 320px) 320px,
+          (max-width: 640px) 640px,
+          (max-width: 1200px) 1200px,
+          1800px`}
+        fallbackSrc={imageUrlBuilder
           .image(post.mainImage)
-          .width(1800)
-          .fit("crop")
+          .width(20)
+          .height(13)
+          .blur(50)
           .format("webp")
           .url()}
-        fallback={
-          <Skeleton
-            maxWidth="1800px"
-            mx="auto"
-            width="100%"
-            height={[200, 300, 600]}
-          />
-        }
         alt={post.title}
         width="100%"
         maxWidth="1800px"
         mx="auto"
-        height="auto"
         maxHeight="600px"
         objectFit="cover"
         objectPosition="center center"

@@ -1,6 +1,6 @@
 import { Box, Container, Heading, Text } from "@chakra-ui/react";
 import groq from "groq";
-import type { LoaderFunction, MetaFunction } from "remix";
+import type { HeadersFunction, LoaderFunction, MetaFunction } from "remix";
 import { useLoaderData } from "remix";
 import invariant from "tiny-invariant";
 import { PortableText } from "~/features/portable-text/PortableText";
@@ -60,6 +60,12 @@ export const meta: MetaFunction = ({ data }) => {
       .url(),
     "og:type": "video",
     "og:video:url": talk.videoUrl,
+  };
+};
+
+export const headers: HeadersFunction = () => {
+  return {
+    "Cache-Control": "s-maxage=360, stale-while-revalidate=3600",
   };
 };
 

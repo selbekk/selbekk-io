@@ -4,7 +4,6 @@ import {
   Heading,
   Image,
   SimpleGrid,
-  Skeleton,
   Text,
 } from "@chakra-ui/react";
 import { matchSorter } from "match-sorter";
@@ -60,16 +59,16 @@ export const SearchableGrid = ({ items }: SearchableListProps) => {
             key={item.slug.current}
           >
             <Image
-              src={
-                imageUrlBuilder
-                  .image(item.mainImage)
-                  .width(600)
-                  .height(400)
-                  .fit("crop")
-                  .format("webp")
-                  .url()!
-              }
-              fallback={<Skeleton width="100%" height="200px" />}
+              {...getImageProps(item.mainImage)}
+              fallbackSrc={imageUrlBuilder
+                .image(item.mainImage)
+                .width(20)
+                .height(15)
+                .fit("crop")
+                .blur(50)
+                .format("webp")
+                .url()}
+              __css={{ aspectRatio: "4/3" }}
               alt={item.title}
               width="100%"
               height="auto"
@@ -93,4 +92,30 @@ export const SearchableGrid = ({ items }: SearchableListProps) => {
       </SimpleGrid>
     </>
   );
+};
+const getUrlForSize = (size: number, sanityImage: any) =>
+  imageUrlBuilder
+    .image(sanityImage)
+    .width(size)
+    .height(size / 1.5)
+    .fit("crop")
+    .format("webp")
+    .url();
+
+const getImageProps = (sanityImage: any) => {
+  const imageSizes = [762, 490, 392];
+
+  const srcSet = imageSizes
+    .map((size) => {
+      const url = getUrlForSize(size, sanityImage);
+      return `${url} ${size}w`;
+    })
+    .join(",\n");
+
+  const sizes = [
+    "(max-width: 767px) 100vw",
+    "(min-width: 768px and max-width: 992px) 48vw",
+    "392px",
+  ].join(", ");
+  return { src: getUrlForSize(imageSizes[0], sanityImage), srcSet, sizes };
 };
