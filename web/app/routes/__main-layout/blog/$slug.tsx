@@ -66,6 +66,7 @@ export const meta: MetaFunction = ({ data }) => {
     title: `${post.title} - selbekk.io`,
     description: `${post.textExcerpt}`,
     "og:title": `${post.title}`,
+    "og:description": `${post.textExcerpt}`,
     "og:image": imageUrlBuilder
       .image(post.mainImage)
       .width(1200)
