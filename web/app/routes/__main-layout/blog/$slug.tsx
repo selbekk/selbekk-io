@@ -65,6 +65,7 @@ export const meta: MetaFunction = ({ data }) => {
   const metadata: Record<string, string> = {
     title: `${post.title} - selbekk.io`,
     description: `${post.textExcerpt}`,
+    "og:title": `${post.title}`,
     "og:image": imageUrlBuilder
       .image(post.mainImage)
       .width(1200)
